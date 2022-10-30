@@ -35,22 +35,28 @@
       <div id="main1"></div>
 
       <div id="main2">
-        <form>
+        <form id="form">
           <h1 class="titulof">CADASTRO</h1>
           <label>Nome</label>
-          <input type="text" id="nome" class="inpute" />
+          <input type="text" id="nome" class="inpute" required />
           <label>CPF</label>
-          <input type="text" id="cpf" class="inpute" />
+          <input
+            type="text"
+            id="cpf"
+            class="inpute"
+            required
+            pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})"
+          />
           <label>Celular</label>
-          <input type="text" id="celular" class="inpute" />
+          <input type="text" id="celular" class="inpute" required />
           <label class="senha">Senha</label>
           <div class="divsenha">
-            <input type="password" id="senha" class="inpute" />
+            <input type="password" id="senha" class="inpute" required />
             <button type="button" id="ver1" class="ver">Ver</button>
           </div>
           <label>Confirmar Senha</label>
           <div class="divsenha">
-            <input type="password" id="csenha" class="inpute" />
+            <input type="password" id="csenha" class="inpute" required />
             <button type="button" id="ver2" class="ver">Ver</button>
           </div>
           <div class="buttons">
