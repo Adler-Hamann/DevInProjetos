@@ -46,6 +46,39 @@ const valorDisable = (event) => {
   }
 };
 
+const pegarOperacao = (event) => {
+  event.preventDefault();
+  const pessoa = informacoes.find(
+    (elemento) => elemento.cpf === document.getElementById("cpf2").value
+  );
+  if (pessoa) {
+    if (pessoa.senha == document.getElementById("senha2").value) {
+      if (document.getElementById("operacao").value == "saldo") {
+        opSaldo();
+        console.log("saldo");
+      } else if (document.getElementById("operacao").value == "deposito") {
+        opDeposito();
+        console.log("deposito");
+      } else {
+        opSaque();
+        console.log("saque");
+      }
+    } else {
+      return alert("Senha não confere");
+    }
+  } else {
+    return alert("Não temos nenhuma conta correspondente a esse cpf");
+  }
+  console.log(pessoa);
+};
+
+const opSaque = () => {};
+
+const opDeposito = () => {};
+
+const opSaldo = () => {};
+
 document.getElementById("form").addEventListener("submit", pegarInfo);
+document.getElementById("form2").addEventListener("submit", pegarOperacao);
 document.getElementById("operacao").addEventListener("change", valorDisable);
 window.addEventListener("load", valorDisable);
