@@ -53,7 +53,22 @@ main>div {
 }
 
 #main1 {
-    width: 55%;
+    width: 54%;
+    background-color: #A8ffFF;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#operacao{
+    background-color: var(--dark-blue);
+    border: none;
+    color: white;
+    width: 10rem;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 #main2 {
