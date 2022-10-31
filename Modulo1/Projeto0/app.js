@@ -38,4 +38,14 @@ const pegarInfo = (event) => {
   }
 };
 
+const valorDisable = (event) => {
+  if (document.getElementById("operacao").value == "saldo") {
+    document.getElementById("valor").disabled = true;
+  } else {
+    document.getElementById("valor").disabled = false;
+  }
+};
+
 document.getElementById("form").addEventListener("submit", pegarInfo);
+document.getElementById("operacao").addEventListener("change", valorDisable);
+window.addEventListener("load", valorDisable);
