@@ -76,11 +76,27 @@ const pegarOperacao = (event) => {
   console.log(pessoa);
 };
 
-const opSaque = () => {};
+const opSaque = (Conta) => {
+  const valor = document.getElementById("valor").value;
+  if (parseFloat(valor) > 0) {
+    if (parseFloat(valor) <= Conta.saldo) {
+      Conta.saldo -= parseFloat(valor);
+      return alert(
+        `Saque no valor de ${valor} dinheiros efetuado com sucesso na conta ${Conta.conta}. Novo saldo: ${Conta.saldo} dinheiros`
+      );
+    } else {
+      return alert(
+        `Saldo insuficiente (${Conta.saldo} dinheiros). Por favor Inserir um valor menor para saque.`
+      );
+    }
+  } else {
+    return alert("Valor não aceito, por favor inserir um valor maior que 0");
+  }
+};
 
 const opDeposito = (Conta) => {
   const valor = document.getElementById("valor").value;
-  if (valor > 0) {
+  if (parseFloat(valor) > 0) {
     Conta.saldo += parseFloat(valor);
     return alert(
       `Depósito de ${valor} dinheiros efetuado com sucesso na conta ${Conta.conta}. Novo saldo: ${Conta.saldo} dinheiros`
