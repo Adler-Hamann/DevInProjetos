@@ -61,10 +61,10 @@ const pegarOperacao = (event) => {
         opSaldo(pessoa);
         console.log("saldo");
       } else if (document.getElementById("operacao").value == "deposito") {
-        opDeposito();
+        opDeposito(pessoa);
         console.log("deposito");
       } else {
-        opSaque();
+        opSaque(pessoa);
         console.log("saque");
       }
     } else {
@@ -78,7 +78,17 @@ const pegarOperacao = (event) => {
 
 const opSaque = () => {};
 
-const opDeposito = () => {};
+const opDeposito = (Conta) => {
+  const valor = document.getElementById("valor").value;
+  if (valor > 0) {
+    Conta.saldo += parseFloat(valor);
+    return alert(
+      `Depósito de ${valor} dinheiros efetuado com sucesso na conta ${Conta.conta}. Novo saldo: ${Conta.saldo} dinheiros`
+    );
+  } else {
+    return alert("Valor não aceito, por favor inserir um valor maior que 0");
+  }
+};
 
 const opSaldo = (Conta) => {
   alert(`O Saldo atual da Conta ${Conta.conta} é de ${Conta.saldo}`);
