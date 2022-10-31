@@ -41,8 +41,12 @@ const pegarInfo = (event) => {
 const valorDisable = (event) => {
   if (document.getElementById("operacao").value == "saldo") {
     document.getElementById("valor").disabled = true;
+    document.getElementById("valor").placeholder = "";
+    document.getElementById("valor").value = "";
   } else {
     document.getElementById("valor").disabled = false;
+    document.getElementById("valor").value = "";
+    document.getElementById("valor").placeholder = "Insira um valor numérico";
   }
 };
 
@@ -54,7 +58,7 @@ const pegarOperacao = (event) => {
   if (pessoa) {
     if (pessoa.senha == document.getElementById("senha2").value) {
       if (document.getElementById("operacao").value == "saldo") {
-        opSaldo();
+        opSaldo(pessoa);
         console.log("saldo");
       } else if (document.getElementById("operacao").value == "deposito") {
         opDeposito();
@@ -76,7 +80,10 @@ const opSaque = () => {};
 
 const opDeposito = () => {};
 
-const opSaldo = () => {};
+const opSaldo = (Conta) => {
+  alert(`O Saldo atual da Conta ${Conta.conta} é de ${Conta.saldo}`);
+  document.getElementById("valor").value = `${Conta.saldo}`;
+};
 
 document.getElementById("form").addEventListener("submit", pegarInfo);
 document.getElementById("form2").addEventListener("submit", pegarOperacao);
